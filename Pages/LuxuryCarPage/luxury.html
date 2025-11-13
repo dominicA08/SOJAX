@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Car</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="luxury.css">
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">
+            <img src="../../Assets/Logo.png" alt="SOJAX Logo">
+        </div>
+        <nav class="main-nav">
+            <a href="../../index.html#home">Homepage</a>
+            <a href="../../index.html#about">About Us</a>
+            <a href="../../index.html#references">References</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="logo-modal" id="logoModal">
+        <img src="../../Assets/Logo.png" alt="SOJAX Logo">
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="../HatchBacksPage/hatch.html" class="menu-link">Hatchbacks</a></li>
+            <li><a href="../SedanPage/sedan.html" class="menu-link">Sedan</a></li>
+            <li><a href="../SUVPage/suv.html" class="menu-link">SUV</a></li>
+            <li><a href="../CoupePage/coupe.html" class="menu-link">Coupe</a></li>
+            <li><a href="../LuxuryCarPage/luxury.html" class="menu-link">Luxury Car</a></li>
+            <li><a href="../SportsCarPage/sport.html" class="menu-link">Sports Car</a></li>
+            <li><a href="../HyperCarPage/hyper.html" class="menu-link">Hyper Car</a></li>
+        </ul>
+    </aside>
+
+    <div id="slideMenuWrapper">
+        <div id="slideMenu" class="slide-menu">
+            <div class="car-box" data-car="lexus">
+                <img src="../../Assets/LuxuryCar/2021LexusES300h.png" alt="Lexus ES 300h" class="car-thumb">
+                <span>Lexus ES 300h</span>
+            </div>
+            <div class="car-box" data-car="mercedes">
+                <img src="../../Assets/LuxuryCar/2022MercedesBenzAmgCLa45.png" alt="Mercedes-Benz AMG CLA 45" class="car-thumb">
+                <span>Mercedes-Benz AMG CLA 45</span>
+            </div>
+            <div class="car-box" data-car="bmwi8">
+                <img src="../../Assets/LuxuryCar/Bmwi8.png" alt="BMW i8" class="car-thumb">
+                <span>BMW i8</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="slideMenuBtnWrapper">
+        <button id="slideMenuBtn" class="slide-menu-btn">&#9776;</button>
+    </div>
+
+    <main>
+        <div id="mainTitle" class="main-title">
+            <h1>Luxury Car Page</h1>
+            <p>Explore our selection of premium and high-end luxury vehicles.</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.getElementById("hamburger");
+            const sideMenu = document.getElementById("sideMenu");
+            const overlay = document.getElementById("overlay");
+            
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                sideMenu.classList.toggle("active");
+                overlay.classList.toggle("active");
+            });
+            
+            overlay.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                sideMenu.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+            
+            const logo = document.getElementById("logo");
+            const logoModal = document.getElementById("logoModal");
+            
+            logo.addEventListener("click", () => {
+                logoModal.classList.add("active");
+                overlay.classList.add("active");
+            });
+            
+            overlay.addEventListener("click", () => {
+                logoModal.classList.remove("active");
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const slideMenuBtn = document.getElementById("slideMenuBtn");
+            const slideMenuWrapper = document.getElementById("slideMenuWrapper");
+            const slideMenu = document.getElementById("slideMenu");
+            const header = document.querySelector("header");
+            const mainTitle = document.getElementById("mainTitle");
+
+            const carData = {
+                lexus: {
+                    name: "2021 Lexus ES 300h (Hybrid executive sedan)",
+                    img: "../../Assets/LuxuryCar/2021LexusES300h.png",
+                    desc: "The 2021 Lexus ES 300h is a luxury hybrid executive sedan that prioritizes comfort, efficiency, and refinement. Powered by a 2.5L I4 engine paired with a hybrid motor, it delivers a combined output of ~215 hp through an E-CVT to the front wheels. Performance is smooth, with 0-100 km/h in ~8.1 seconds and a top speed of ~180 km/h, while excelling in fuel economy at 18-22 km/L. The interior highlights quiet luxury, offering leather upholstery, wood trim, a 12.3\" infotainment system (select trims), and Lexus Safety System+ for advanced driver assistance. In the Philippines, it is priced at ₱2.9M-₱3.3M, officially available via Lexus PH dealers, backed by a reliable aftersales network.",
+                    specs: [
+                        ["Price (PH guidance)", "₱2.9M - ₱3.3M"],
+                        ["Engine", "2.5L I4 + hybrid electric motor - combined ~215 hp"],
+                        ["Transmission", "E-CVT (hybrid)"],
+                        ["Drivetrain", "FWD"],
+                        ["Performance", "0-100 km/h ~8.1 s • Top speed ~180 km/h"],
+                        ["Fuel Economy", "~18-22 km/L (hybrid efficiency)"],
+                        ["Interior / Features", "Quiet luxury cabin, leather, wood trim, 12.3\" infotainment (select trims), Lexus Safety System+ tech"],
+                        ["Buying Notes (PH)", "Lexus PH units available via Lexus dealers; strong aftersales network."]
+                    ]
+                },
+                mercedes: {
+                    name: "2022 Mercedes-Benz AMG CLA 45",
+                    img: "../../Assets/LuxuryCar/2022MercedesBenzAmgCLa45.png",
+                    desc: "The 2022 Mercedes-Benz AMG CLA 45 is a high-performance compact luxury sedan engineered by AMG for precision and speed. It features a 2.0L AMG-tuned turbo I4 producing ~382 hp and 480 Nm, paired with an 8-speed AMG DCT automatic and 4MATIC+ AWD with performance torque split. This setup enables 0-100 km/h in ~4.0 seconds and a top speed of 250-270 km/h (depending on package), while maintaining 9-12 km/L fuel economy for its class. The cabin delivers a sport-luxury experience, with AMG performance seats, MBUX infotainment, adaptive dampers, and AMG dynamic drive modes (including Drift Mode on select configs). In the Philippines, pricing ranges from ₱4.7M-₱5.5M, officially offered via Mercedes-Benz PH dealers, though AMG variants are limited in stock.",
+                    specs: [
+                        ["Price (PH guidance)", "₱4.7M - ₱5.5M (trim/options dependent)"],
+                        ["Engine", "2.0L turbo I4 - ~382 hp • ~480 Nm (AMG-tuned)"],
+                        ["Transmission", "8-speed AMG DCT automatic"],
+                        ["Drivetrain", "AMG 4MATIC+ AWD (performance torque split)"],
+                        ["Performance", "0-100 km/h ~4.0 s • Top speed ~250-270 km/h (depending on package)"],
+                        ["Fuel Economy", "~9-12 km/L (performance car)"],
+                        ["Interior / Features", "AMG performance seats, MBUX infotainment, AMG dynamic drive modes (Drift mode on some configs), adaptive dampers"],
+                        ["Buying Notes (PH)", "Usually available through Mercedes-Benz PH dealers; check stock for AMG variants as they are limited."]
+                    ]
+                },
+                bmwi8: {
+                    name: "BMW i8 (plug-in hybrid - discontinued, luxury sports)",
+                    img: "../../Assets/LuxuryCar/Bmwi8.png",
+                    desc: "The BMW i8 is a futuristic plug-in hybrid sports car that combines electric efficiency with supercar performance. It features a 1.5L turbo 3-cylinder engine paired with an electric motor, delivering a combined output of ~369 hp through a 6-speed automatic and electric drive system. The unique AWD hybrid setup uses an electric front motor and petrol rear engine, enabling 0-100 km/h in ~4.2 seconds and a top speed of ~250 km/h (limited). Fuel economy ranges from 12-16 km/L depending on driving mode and EV usage. The interior showcases futuristic design with scissor doors, carbon fiber monocoque construction, and lightweight materials. In the Philippines, used/collector values range from ₱8.5M-₱11.0M, though the model has been discontinued.",
+                    specs: [
+                        ["Price (PH guidance, used/imported)", "₱8.5M - ₱11.0M (used/collector values vary)"],
+                        ["Engine", "1.5L turbo 3-cyl + electric motor - combined ~369 hp (approx.)"],
+                        ["Transmission", "6-speed automatic + electric drive"],
+                        ["Drivetrain", "AWD hybrid system (electric front motor + petrol rear)"],
+                        ["Performance", "0-100 km/h ~4.2 s • Top speed ~250 km/h (limited)"],
+                        ["Fuel Economy", "~12-16 km/L (depending on driving / EV mode use)"],
+                        ["Interior / Features", "Futuristic cabin, scissor doors, carbon fibre monocoque, lightweight construction"],
+                        ["Buying Notes (PH)", "Discontinued model; collector value varies; check service availability through BMW specialists."]
+                    ]
+                }
+            };
+
+            slideMenuBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                slideMenuWrapper.classList.toggle("active");
+            });
+
+            document.addEventListener("click", (e) => {
+                if (
+                    !slideMenuWrapper.contains(e.target) &&
+                    slideMenuWrapper.classList.contains("active")
+                ) {
+                    slideMenuWrapper.classList.remove("active");
+                }
+            });
+
+            function createExpandedModal(carKey) {
+                const car = carData[carKey];
+                if (!car) return null;
+                const modal = document.createElement('div');
+                modal.className = 'car-box expanded';
+                modal.setAttribute('data-car', carKey);
+                modal.innerHTML = `
+                    <button class="close-btn" title="Close">&times;</button>
+                    <img src="${car.img}" alt="${car.name}" class="car-thumb">
+                    <h2>${car.name}</h2>
+                    <div class="car-desc">${car.desc}</div>
+                    <table class="car-specs">
+                        <tbody>
+                            ${car.specs.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join('')}
+                        </tbody>
+                    </table>
+                `;
+                return modal;
+            }
+
+            function expandBoxHandler(e) {
+                const sourceBox = e.currentTarget;
+                const carKey = sourceBox.dataset.car;
+                if (!carKey) return;
+                const wrapper = document.getElementById('slideMenuWrapper');
+                if (wrapper && wrapper.classList.contains('active')) {
+                    wrapper.classList.remove('active');
+                }
+                if (mainTitle) mainTitle.classList.add("hide");
+                const modal = createExpandedModal(carKey);
+                if (!modal) return;
+                document.body.appendChild(modal);
+                const closeBtn = modal.querySelector('.close-btn');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => closeModal(modal));
+                }
+                setTimeout(() => {
+                    document.addEventListener("mousedown", closeBoxHandler);
+                    document.addEventListener("keydown", escBoxHandler);
+                }, 10);
+            }
+
+            document.querySelectorAll('.car-box').forEach(box => {
+                box.addEventListener("click", expandBoxHandler);
+            });
+
+            function closeModal(modal) {
+                if (!modal) return;
+                modal.classList.add('closing');
+                setTimeout(() => {
+                    if (modal.parentNode) modal.parentNode.removeChild(modal);
+                    if (mainTitle) mainTitle.classList.remove('hide');
+                }, 400);
+                document.removeEventListener("mousedown", closeBoxHandler);
+                document.removeEventListener("keydown", escBoxHandler);
+            }
+
+            function closeBoxHandler(e) {
+                const expandedBox = document.querySelector('.car-box.expanded');
+                if (expandedBox && !expandedBox.contains(e.target)) {
+                    closeModal(expandedBox);
+                }
+            }
+
+            function escBoxHandler(e) {
+                if (e.key === "Escape") {
+                    const expandedBox = document.querySelector('.car-box.expanded');
+                    if (expandedBox) {
+                        closeModal(expandedBox);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

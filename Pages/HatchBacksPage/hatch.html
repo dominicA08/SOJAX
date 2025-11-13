@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HatchBacks</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="hatch.css">
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">
+            <img src="../../Assets/Logo.png" alt="SOJAX Logo">
+        </div>
+        <nav class="main-nav">
+            <a href="../../index.html#home">Homepage</a>
+            <a href="../../index.html#about">About Us</a>
+            <a href="../../index.html#references">References</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="logo-modal" id="logoModal">
+        <img src="../../Assets/Logo.png" alt="SOJAX Logo">
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="../HatchBacksPage/hatch.html" class="menu-link">Hatchbacks</a></li>
+            <li><a href="../SedanPage/sedan.html" class="menu-link">Sedan</a></li>
+            <li><a href="../SUVPage/suv.html" class="menu-link">SUV</a></li>
+            <li><a href="../CoupePage/coupe.html" class="menu-link">Coupe</a></li>
+            <li><a href="../LuxuryCarPage/luxury.html" class="menu-link">Luxury Car</a></li>
+            <li><a href="../SportsCarPage/sport.html" class="menu-link">Sports Car</a></li>
+            <li><a href="../HyperCarPage/hyper.html" class="menu-link">Hyper Car</a></li>
+        </ul>
+    </aside>
+
+    <div id="slideMenuWrapper">
+        <div id="slideMenu" class="slide-menu">
+            <div class="car-box" data-car="fit">
+                <img src="../../Assets/HatchBacks/HondaFit.png" alt="Honda Fit" class="car-thumb">
+                <span>Honda Fit</span>
+            </div>
+            <div class="car-box" data-car="yaris">
+                <img src="../../Assets/HatchBacks/HondaYaris.png" alt="Honda Yaris" class="car-thumb">
+                <span>Honda Yaris</span>
+            </div>
+            <div class="car-box" data-car="mazda3">
+                <img src="../../Assets/HatchBacks/Mazda3Hatchback.png" alt="Mazda 3 Hatchback" class="car-thumb">
+                <span>Mazda 3 Hatchback</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="slideMenuBtnWrapper">
+        <button id="slideMenuBtn" class="slide-menu-btn">&#9776;</button>
+    </div>
+
+    <div class="main-content">
+        <div id="mainTitle" class="main-title">
+            <h1>Hatchbacks Page</h1>
+            <p>Explore our selection of stylish and high-performance hatchbacks.</p>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const hamburger = document.getElementById("hamburger");
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+    const logo = document.getElementById("logo");
+    const logoModal = document.getElementById("logoModal");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        sideMenu.classList.toggle("active");
+        overlay.classList.toggle("active");
+    });
+
+    overlay.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        sideMenu.classList.remove("active");
+        overlay.classList.remove("active");
+        logoModal.classList.remove("active");
+    });
+
+    logo.addEventListener("click", () => {
+        logoModal.classList.toggle("active");
+        overlay.classList.toggle("active");
+    });
+
+    const slideMenuBtn = document.getElementById("slideMenuBtn");
+    const slideMenuWrapper = document.getElementById("slideMenuWrapper");
+    const carBoxes = document.querySelectorAll(".car-box");
+    const mainTitle = document.getElementById("mainTitle");
+
+    const carData = {
+        fit: {
+            name: "Honda Fit (Honda Jazz in PH)",
+            img: "../../Assets/HatchBacks/HondaFit.png",
+            desc: `The Honda Fit, known in the Philippines as the Jazz, is a versatile city hatchback that balances practicality and performance. It uses a 1.5L inline-four with 120-130 hp and 155 Nm, paired with a CVT (manual in some markets). With FWD and a lightweight build, it does 0-100 km/h in 8.5-9.5 seconds, tops out at 190 km/h, and delivers excellent fuel economy at ~14-18 km/L. Its standout feature is the "Magic Seats" system, allowing flexible cargo and seating layouts. Higher trims offer a touchscreen infotainment system and Honda Sensing safety tech. In the Philippines, prices range from ₱986K-₱1.2M, making it a top urban choice for efficiency, practicality, and resale value, backed by strong dealer support and available parts.`,
+            specs: [
+                ["Price (PH guidance)", "₱986K - ₱1.2M"],
+                ["Engine", "1.5L I4 - ~120-130 hp, ~155 Nm"],
+                ["Transmission", "CVT (or manual in some markets)"],
+                ["Drivetrain", "FWD"],
+                ["Performance", "0-100 km/h ~8.5-9.5 s, Top speed ~180-190 km/h"],
+                ["Fuel Economy", "~14-18 km/L"],
+                ["Interior / Features", "\"Magic Seats\" flexible rear seating, touchscreen infotainment, Honda Sensing safety tech"],
+                ["Buying Notes (PH)", "Popular city hatchback; good resale and parts availability via Honda PH dealers."]
+            ]
+        },
+        yaris: {
+            name: "Honda Yaris",
+            img: "../../Assets/HatchBacks/HondaYaris.png",
+            desc: `The Honda Yaris is a reliable hatchback built for efficiency and comfort in daily driving. It's powered by a 1.5L inline-four with 106-110 hp and 140 Nm, paired with a CVT (manual in some markets). With FWD, it's agile in the city and stable on highways, doing 0-100 km/h in 10-11 seconds with a top speed of ~180 km/h. Fuel economy is excellent at ~15-20 km/L. The cabin is practical and comfortable, featuring a touchscreen infotainment system and Toyota's safety tech on newer trims. In the Philippines, pricing ranges ₱1.04M-₱1.28M, backed by Toyota's strong dealer network, making the Yaris a dependable and economical choice with lasting value.`,
+            specs: [
+                ["Price (PH guidance)", "₱1.04M - ₱1.28M"],
+                ["Engine", "1.5L I4 - ~106-110 hp, ~140 Nm"],
+                ["Transmission", "CVT (or manual)"],
+                ["Drivetrain", "FWD"],
+                ["Performance", "0-100 km/h ~10-11 s, Top speed ~175-180 km/h"],
+                ["Fuel Economy", "~15-20 km/L"],
+                ["Interior / Features", "Practical interior, reliable Toyota safety options, touchscreen infotainment"],
+                ["Buying Notes (PH)", "Very reliable, low running cost; search Toyota PH or authorized dealers for current trims & warranty packages."]
+            ]
+        },
+        mazda3: {
+            name: "Mazda 3 Hatchback",
+            img: "../../Assets/HatchBacks/Mazda3Hatchback.png",
+            desc: `The Mazda 3 Hatchback combines sleek design, a premium interior, and engaging performance in the compact hatch segment. It offers a 2.0L engine with 155 hp or a 2.5L with 186 hp, paired to a 6-speed automatic (manual in some markets). Power goes to the front wheels, with AWD available in select markets. Acceleration is 0-100 km/h in 7.5-8.5 seconds, with a top speed of ~210 km/h, while fuel economy averages ~11-15 km/L. The cabin features upscale materials, Mazda Connect infotainment, and the i-Activsense safety suite. In the Philippines, pricing ranges ₱1.33M-₱1.62M, with both sedan and hatchback offered. Stylish, refined, and fun to drive, it's a standout in its class.`,
+            specs: [
+                ["Price (PH guidance)", "₱1.33M - ₱1.62M"],
+                ["Engine", "2.0L I4 (~155 hp) or 2.5L I4 (~186 hp)"],
+                ["Transmission", "6-speed automatic (or manual)"],
+                ["Drivetrain", "FWD (AWD in select markets)"],
+                ["Performance", "0-100 km/h ~7.5-8.5 s, Top speed ~210 km/h"],
+                ["Fuel Economy", "~11-15 km/L"],
+                ["Interior / Features", "Upscale cabin, Mazda Connect infotainment, i-Activsense safety suite"],
+                ["Buying Notes (PH)", "Mazda PH sells both sedan and hatch variants; features and price vary by trim."]
+            ]
+        }
+    };
+
+    slideMenuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        slideMenuWrapper.classList.toggle("active");
+    });
+
+    document.addEventListener("click", (e) => {
+        if (
+            !slideMenuWrapper.contains(e.target) &&
+            slideMenuWrapper.classList.contains("active")
+        ) {
+            slideMenuWrapper.classList.remove("active");
+        }
+    });
+
+    carBoxes.forEach(box => {
+        box.addEventListener("click", expandBoxHandler);
+    });
+
+    function createExpandedModal(carKey) {
+        const car = carData[carKey];
+        if (!car) return null;
+        const modal = document.createElement('div');
+        modal.className = 'car-box expanded';
+        modal.setAttribute('data-car', carKey);
+        modal.innerHTML = `
+            <button class="close-btn" title="Close">&times;</button>
+            <img src="${car.img}" alt="${car.name}" class="car-thumb">
+            <h2>${car.name}</h2>
+            <div class="car-desc">${car.desc}</div>
+            <table class="car-specs">
+                <tbody>
+                    ${car.specs.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join('')}
+                </tbody>
+            </table>
+        `;
+        return modal;
+    }
+
+    function expandBoxHandler(e) {
+        const carKey = e.currentTarget.dataset.car;
+        if (!carKey) return;
+        const wrapper = document.getElementById('slideMenuWrapper');
+        if (wrapper && wrapper.classList.contains('active')) {
+            wrapper.classList.remove('active');
+        }
+        if (mainTitle) mainTitle.classList.add("hide");
+        const modal = createExpandedModal(carKey);
+        if (!modal) return;
+        document.body.appendChild(modal);
+        const closeBtn = modal.querySelector('.close-btn');
+        if (closeBtn) closeBtn.addEventListener('click', () => closeModal(modal));
+        setTimeout(() => {
+            document.addEventListener("mousedown", closeBoxHandler);
+            document.addEventListener("keydown", escBoxHandler);
+        }, 10);
+    }
+
+    function closeModal(modal) {
+        if (!modal) return;
+        modal.classList.add('closing');
+        setTimeout(() => {
+            if (modal.parentNode) modal.parentNode.removeChild(modal);
+            if (mainTitle) mainTitle.classList.remove('hide');
+        }, 400);
+        document.removeEventListener("mousedown", closeBoxHandler);
+        document.removeEventListener("keydown", escBoxHandler);
+    }
+
+    function closeBoxHandler(e) {
+        const expandedBox = document.querySelector('.car-box.expanded');
+        if (expandedBox && !expandedBox.contains(e.target)) {
+            closeModal(expandedBox);
+        }
+    }
+
+    function escBoxHandler(e) {
+        if (e.key === "Escape") {
+            const expandedBox = document.querySelector('.car-box.expanded');
+            if (expandedBox) {
+                closeModal(expandedBox);
+            }
+        }
+    }
+});
+    </script>
+</body>
+</html>

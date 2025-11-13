@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupe</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="coupe.css">
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">
+            <img src="../../Assets/Logo.png" alt="SOJAX Logo">
+        </div>
+        <nav class="main-nav">
+            <a href="../../index.html#home">Homepage</a>
+            <a href="../../index.html#about">About Us</a>
+            <a href="../../index.html#references">References</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <div class="logo-modal" id="logoModal">
+        <img src="../../Assets/Logo.png" alt="SOJAX Logo">
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="../HatchBacksPage/hatch.html" class="menu-link">Hatchbacks</a></li>
+            <li><a href="../SedanPage/sedan.html" class="menu-link">Sedan</a></li>
+            <li><a href="../SUVPage/suv.html" class="menu-link">SUV</a></li>
+            <li><a href="../CoupePage/coupe.html" class="menu-link">Coupe</a></li>
+            <li><a href="../LuxuryCarPage/luxury.html" class="menu-link">Luxury Car</a></li>
+            <li><a href="../SportsCarPage/sport.html" class="menu-link">Sports Car</a></li>
+            <li><a href="../HyperCarPage/hyper.html" class="menu-link">Hyper Car</a></li>
+        </ul>
+    </aside>
+
+    <div id="slideMenuWrapper">
+        <div id="slideMenu" class="slide-menu">
+            <div class="car-box" data-car="audiA5">
+                <img src="../../Assets/Coupe/AudiA5Coupe.png" alt="Audi A5 Coupe" class="car-thumb">
+                <span>Audi A5 Coupe</span>
+            </div>
+            <div class="car-box" data-car="bmwM4">
+                <img src="../../Assets/Coupe/BmwM4Comp.png" alt="BMW M4" class="car-thumb">
+                <span>BMW M4</span>
+            </div>
+            <div class="car-box" data-car="mustangGT350R">
+                <img src="../../Assets/Coupe/FordMustangGt350r2018.png" alt="Ford Mustang GT350R" class="car-thumb">
+                <span>Ford Mustang GT350R</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="slideMenuBtnWrapper">
+        <button id="slideMenuBtn" class="slide-menu-btn">&#9776;</button>
+    </div>
+
+    <main>
+        <div id="mainTitle" class="main-title">
+            <h1>Coupe Page</h1>
+            <p>Explore our selection of stylish and high-performance coupes.</p>
+        </div>
+    </main>
+ 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            const hamburger = document.getElementById("hamburger");
+            const sideMenu = document.getElementById("sideMenu");
+            const overlay = document.getElementById("overlay");
+            
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                sideMenu.classList.toggle("active");
+                overlay.classList.toggle("active");
+            });
+            
+            overlay.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                sideMenu.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+            
+            const logo = document.getElementById("logo");
+            const logoModal = document.getElementById("logoModal");
+            
+            logo.addEventListener("click", () => {
+                logoModal.classList.add("active");
+                overlay.classList.add("active");
+            });
+            
+            overlay.addEventListener("click", () => {
+                logoModal.classList.remove("active");
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const slideMenuBtn = document.getElementById("slideMenuBtn");
+            const slideMenuWrapper = document.getElementById("slideMenuWrapper");
+            const slideMenu = document.getElementById("slideMenu");
+            const header = document.querySelector("header");
+            const mainTitle = document.getElementById("mainTitle");
+
+            const carData = {
+                audiA5: {
+                    name: "Audi A5 Coupe (2022-2024)",
+                    img: "../../Assets/Coupe/AudiA5Coupe.png",
+                    desc: "The Audi A5 Coupe is a premium two-door coupe that combines elegant styling with refined performance. It features a turbocharged 2.0L TFSI four-cylinder engine producing 261 horsepower and 273 lb-ft of torque, paired with a seven-speed S tronic dual-clutch transmission. The A5 comes standard with Audi's quattro all-wheel drive system, providing excellent traction in various driving conditions. Inside, the cabin offers a sophisticated design with high-quality materials, a 10.1-inch MMI touch display, and available Virtual Cockpit Plus. The A5 Coupe balances sporty handling with comfortable daily driving, making it an appealing choice in the luxury coupe segment.",
+                    specs: [
+                        ["Price (PH guidance)", "₱4.5M - ₱5.5M"],
+                        ["Engine", "2.0L turbocharged inline-4 (261 hp, 273 lb-ft)"],
+                        ["Transmission", "7-speed S tronic dual-clutch"],
+                        ["Drivetrain", "quattro all-wheel drive"],
+                        ["Performance", "0-100 km/h in ~5.3 seconds • Top speed: 250 km/h (limited)"],
+                        ["Fuel Economy", "~8.5-10.5 km/L (combined)"],
+                        ["Interior / Features", "10.1-inch MMI touch display, available Virtual Cockpit Plus, leather seating, three-zone climate control"],
+                        ["Buying Notes (PH)", "Available through PGA Cars; limited allocation but good dealer support"]
+                    ]
+                },
+                bmwM4: {
+                    name: "BMW M4 Competition (2022-2024)",
+                    img: "../../Assets/Coupe/BmwM4Comp.png",
+                    desc: "The BMW M4 Competition represents the pinnacle of BMW's performance coupe lineup, featuring aggressive styling and track-focused engineering. Powered by a twin-turbocharged 3.0L inline-six engine, it produces 503 horsepower and 479 lb-ft of torque in Competition trim. Power is delivered through an 8-speed M Steptronic automatic transmission to either rear wheels or all four wheels with the available xDrive system. The M4 Competition accelerates from 0-60 mph in just 3.4 seconds with xDrive and features adaptive M suspension, M Compound brakes, and an Active M Differential. Inside, the cabin combines luxury with a sporting character, featuring M Sport seats, carbon fiber trim, and the latest iDrive 8 infotainment system with a 12.3-inch digital instrument cluster and 14.9-inch central display.",
+                    specs: [
+                        ["Price (PH guidance)", "₱8.5M - ₱9.5M"],
+                        ["Engine", "3.0L twin-turbocharged inline-6 (503 hp, 479 lb-ft)"],
+                        ["Transmission", "8-speed M Steptronic automatic"],
+                        ["Drivetrain", "RWD (standard) / AWD (optional on Competition)"],
+                        ["Performance", "0-60 mph: 3.8-4.1 seconds (RWD) / 3.4 seconds (Competition xDrive)"],
+                        ["Fuel Economy", "~16 mpg city / 23 mpg highway"],
+                        ["Interior / Features", "M Sport seats, carbon fiber trim, iDrive 8 with 12.3-inch digital instrument cluster and 14.9-inch infotainment display"],
+                        ["Buying Notes (PH)", "Limited allocation through BMW PH; expect premium pricing over MSRP"]
+                    ]
+                },
+                mustangGT350R: {
+                    name: "Ford Mustang GT350R (2019-2020)",
+                    img: "../../Assets/Coupe/FordMustangGt350r2018.png",
+                    desc: "The Ford Mustang Shelby GT350R represents the ultimate track-focused version of Ford's iconic pony car. At its heart is a naturally aspirated 5.2L flat-plane crank V8 engine (known as the 'Voodoo') that produces 526 horsepower and 429 lb-ft of torque, revving to an extraordinary 8,250 rpm redline. Power is sent exclusively to the rear wheels through a Tremec 6-speed manual transmission. The GT350R features carbon fiber wheels, deleted rear seats, and aggressive aerodynamics to enhance track performance. With MagneRide adaptive suspension, massive Brembo brakes, and specially developed Michelin Pilot Sport Cup 2 tires, the GT350R delivers exceptional handling and braking capabilities. Inside, Recaro seats, Alcantara trim, and a minimalist approach emphasize its track-focused nature.",
+                    specs: [
+                        ["Price (PH guidance)", "₱6.5M - ₱8.0M (imported)"],
+                        ["Engine", "5.2L naturally aspirated flat-plane crank V8 (526 hp, 429 lb-ft)"],
+                        ["Transmission", "Tremec 6-speed manual"],
+                        ["Drivetrain", "RWD"],
+                        ["Performance", "0-60 mph: ~3.7 seconds • Quarter-mile: ~11.6 seconds"],
+                        ["Fuel Economy", "~14 mpg city / 21 mpg highway"],
+                        ["Interior / Features", "Recaro seats, Alcantara trim, deleted rear seats (for weight reduction), Ford SYNC 3 infotainment"],
+                        ["Buying Notes (PH)", "Rare collector's item; limited production run; typically available only through gray market importers"]
+                    ]
+                }
+            };
+
+            slideMenuBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                slideMenuWrapper.classList.toggle("active");
+            });
+
+            document.addEventListener("click", (e) => {
+                if (
+                    !slideMenuWrapper.contains(e.target) &&
+                    slideMenuWrapper.classList.contains("active")
+                ) {
+                    slideMenuWrapper.classList.remove("active");
+                }
+            });
+
+            function createExpandedModal(carKey) {
+                const car = carData[carKey];
+                if (!car) return null;
+                const modal = document.createElement('div');
+                modal.className = 'car-box expanded';
+                modal.setAttribute('data-car', carKey);
+                modal.innerHTML = `
+                    <button class="close-btn" title="Close">&times;</button>
+                    <img src="${car.img}" alt="${car.name}" class="car-thumb">
+                    <h2>${car.name}</h2>
+                    <div class="car-desc">${car.desc}</div>
+                    <table class="car-specs">
+                        <tbody>
+                            ${car.specs.map(([k, v]) => `<tr><th>${k}</th><td>${v}</td></tr>`).join('')}
+                        </tbody>
+                    </table>
+                `;
+                return modal;
+            }
+
+            function expandBoxHandler(e) {
+                const sourceBox = e.currentTarget;
+                const carKey = sourceBox.dataset.car;
+                if (!carKey) return;
+               
+                const wrapper = document.getElementById('slideMenuWrapper');
+                if (wrapper && wrapper.classList.contains('active')) {
+                    wrapper.classList.remove('active');
+                }
+                if (mainTitle) mainTitle.classList.add("hide");
+                const modal = createExpandedModal(carKey);
+                if (!modal) return;
+                document.body.appendChild(modal);
+                
+                const closeBtn = modal.querySelector('.close-btn');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => closeModal(modal));
+                }
+                setTimeout(() => {
+                    document.addEventListener("mousedown", closeBoxHandler);
+                    document.addEventListener("keydown", escBoxHandler);
+                }, 10);
+            }
+
+            document.querySelectorAll('.car-box').forEach(box => {
+                box.addEventListener("click", expandBoxHandler);
+            });
+
+            function closeModal(modal) {
+                if (!modal) return;
+                modal.classList.add('closing');
+                setTimeout(() => {
+                    if (modal.parentNode) modal.parentNode.removeChild(modal);
+                    if (mainTitle) mainTitle.classList.remove('hide');
+                }, 400);
+                document.removeEventListener("mousedown", closeBoxHandler);
+                document.removeEventListener("keydown", escBoxHandler);
+            }
+
+            function closeBoxHandler(e) {
+                const expandedBox = document.querySelector('.car-box.expanded');
+                if (expandedBox && !expandedBox.contains(e.target)) {
+                    closeModal(expandedBox);
+                }
+            }
+
+            function escBoxHandler(e) {
+                if (e.key === "Escape") {
+                    const expandedBox = document.querySelector('.car-box.expanded');
+                    if (expandedBox) {
+                        closeModal(expandedBox);
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
